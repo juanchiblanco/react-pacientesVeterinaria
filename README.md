@@ -1,12 +1,62 @@
-# React + Vite
+# 🐾 Pacientes de Veterinaria - React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Descripción
 
-Currently, two official plugins are available:
+Aplicación web desarrollada en **React** que permite **gestionar citas en una veterinaria**. A través de un formulario, se pueden registrar pacientes con todos sus datos obligatorios, y además se pueden **eliminar citas**. Las citas se guardan automáticamente en el **LocalStorage**, asegurando su persistencia aunque se recargue la página.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🧩 Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📋 Formulario de carga de citas con los siguientes campos:
+  - Nombre de la mascota
+  - Nombre del dueño
+  - Fecha
+  - Hora
+  - Síntomas
+
+> Todos los campos son **obligatorios**.  
+> Si el usuario intenta enviar el formulario con campos vacíos, se muestra un mensaje de error.
+
+- 💾 Guardado de las citas en `localStorage`.
+- 🗑️ Eliminación de citas individuales.
+- 🔁 Sincronización automática del estado con `localStorage`.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- **React**
+- **React Hooks (`useState`, `useEffect`)**
+- **Bootstrap o CSS personalizado** (según elección)
+- **LocalStorage** para persistencia de datos
+
+---
+
+## ▶️ Cómo ejecutar el proyecto
+
+1. 📥 Clonar o descargar este repositorio.
+2. 📦 Ejecutar `npm install` para instalar dependencias.
+3. ▶️ Ejecutar `npm start` para iniciar el proyecto.
+4. 🌐 Acceder a `http://localhost:3000` desde el navegador.
+
+---
+
+## 👨‍💻 Autor
+
+**Juan Manuel Blanco**
+
+---
+
+## 🎯 Objetivo educativo
+
+Este proyecto tiene como finalidad reforzar los siguientes conceptos en React:
+
+- Manejo de formularios y validaciones.
+- Estructura de componentes reutilizables.
+- Uso de `localStorage` para persistencia de datos.
+- Buenas prácticas con `useEffect` para sincronización de datos.
+
+---
+
+¡Gestioná a tus pacientes peludos de forma simple y eficiente! 🐶🐱🩺
