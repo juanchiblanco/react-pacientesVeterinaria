@@ -5,7 +5,13 @@ const ListaPacientes = ({citas , borrarCita}) => {
   return (
     <Card className="shadow my-3">
       <Card.Header className="py-3 bg-light text-center">
-        <b>No hay citas</b>
+        
+        {citas.length === 0 && (
+        <p className="text-center">
+          <b>No hay citas</b>
+        </p>
+      )}
+        
       </Card.Header>
       <Card.Body className="bg-primary-subtle">
         <div className="row justify-content-center gap-2">
