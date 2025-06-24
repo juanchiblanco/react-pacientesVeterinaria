@@ -2,11 +2,14 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ListaPacientes from "./ListaPacientes";
 
 const FormularioPaciente = () => {
-  const [citas, setCitas] = useState([]);
+  
+  const citasLocalStorage = JSON.parse(localStorage.getItem("citas") || []);
+
+  const [citas, setCitas] = useState(citasLocalStorage);
 
   const {
     register,
@@ -15,6 +18,11 @@ const FormularioPaciente = () => {
     formState: { errors },
   } = useForm();
 
+  useEffect(
+    () => localStorage.setItem("citas", JSON.stringify(citas)),
+    [citas]
+  );
+
   const agregarCitas = (cita) => {
     setCitas([...citas, cita]);
     reset();
@@ -22,7 +30,7 @@ const FormularioPaciente = () => {
 
   const borrarCita = (nombreCita) => {
     const citasFiltradas = citas.filter((cita) => nombreCita !== cita);
-    setCitas(citasFiltradas)
+    setCitas(citasFiltradas);
   };
 
   return (
@@ -150,7 +158,7 @@ const FormularioPaciente = () => {
           </Form>
         </Card.Body>
       </Card>
-      <ListaPacientes citas={citas} borrarCita={borrarCita}/>
+      <ListaPacientes citas={citas} borrarCita={borrarCita} />
     </>
   );
 };
