@@ -2,8 +2,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const FormularioPaciente = () => {
+  const [citas, setCitas] = useState([]);
 
   const {
     register,
@@ -12,7 +14,10 @@ const FormularioPaciente = () => {
     formState: { errors },
   } = useForm();
 
-  const agregarCitas = () => {}
+  const agregarCitas = (cita) => {
+    setCitas([...citas, cita]);
+    reset();
+  };
 
   return (
     <Card className="shadow my-3">
@@ -20,70 +25,92 @@ const FormularioPaciente = () => {
         Llenar el formulario para crear un cita
       </Card.Header>
       <Card.Body className="bg-primary-subtle">
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit(agregarCitas)}>
           <Form.Group className="mb-3" controlId="nombreMascota">
             <Form.Label>Nombre de la mascota *</Form.Label>
-            <Form.Control type="text" placeholder="Ej: Chispa" {...register("inputMascota", {
+            <Form.Control
+              type="text"
+              placeholder="Ej: Chispa"
+              {...register("inputMascota", {
                 required: "El nombre de la mascota es un dato obligatorio",
                 minLength: {
                   value: 2,
-                  message: "El nombre de la mascota debe tener 2 caracteres como minimo",
+                  message:
+                    "El nombre de la mascota debe tener 2 caracteres como minimo",
                 },
                 maxLength: {
                   value: 50,
-                  message: "El nombre de la mascota debe tener 50 caracteres como minimo",
+                  message:
+                    "El nombre de la mascota debe tener 50 caracteres como minimo",
                 },
                 pattern: {
                   value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
                   message:
                     "El nombre de la mascota debe contener unicamente caracteres alfabeticos, mayusculas o minusculas",
                 },
-              })} />
+              })}
+            />
           </Form.Group>
           <Form.Text className="text-danger">
             {errors.inputMascota?.message}
           </Form.Text>
           <Form.Group className="mb-3" controlId="nombreDuenio">
             <Form.Label>Nombre del dueño/a *</Form.Label>
-            <Form.Control type="text" placeholder="Ej: Juan" {...register("inputDuenio", {
+            <Form.Control
+              type="text"
+              placeholder="Ej: Juan"
+              {...register("inputDuenio", {
                 required: "El nombre del dueño es un dato obligatorio",
                 minLength: {
                   value: 3,
-                  message: "El nombre del dueño debe tener 3 caracteres como minimo",
+                  message:
+                    "El nombre del dueño debe tener 3 caracteres como minimo",
                 },
                 maxLength: {
                   value: 50,
-                  message: "El nombre del dueño debe tener 50 caracteres como minimo",
+                  message:
+                    "El nombre del dueño debe tener 50 caracteres como minimo",
                 },
                 pattern: {
                   value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
                   message:
                     "El nombre del dueño debe contener unicamente caracteres alfabeticos, mayusculas o minusculas",
                 },
-              })} />
+              })}
+            />
           </Form.Group>
           <Form.Text className="text-danger">
             {errors.inputDuenio?.message}
           </Form.Text>
           <Form.Group className="mb-3" controlId="fecha">
             <Form.Label>Fecha *</Form.Label>
-            <Form.Control type="date" {...register("inputFecha", {
-                required: "La fecha de la cita es un dato obligatorio"})} />
+            <Form.Control
+              type="date"
+              {...register("inputFecha", {
+                required: "La fecha de la cita es un dato obligatorio",
+              })}
+            />
           </Form.Group>
           <Form.Text className="text-danger">
             {errors.inputFecha?.message}
           </Form.Text>
           <Form.Group className="mb-3" controlId="hora">
             <Form.Label>Hora *</Form.Label>
-            <Form.Control type="time" {...register("inputHora", {
-                required: "La hora de la cita es un dato obligatorio"})} />
+            <Form.Control
+              type="time"
+              {...register("inputHora", {
+                required: "La hora de la cita es un dato obligatorio",
+              })}
+            />
           </Form.Group>
           <Form.Text className="text-danger">
             {errors.inputHora?.message}
           </Form.Text>
           <Form.Group className="mb-3" controlId="sintoma">
             <Form.Label>Sintomas *</Form.Label>
-            <Form.Control type="text" {...register("inputSintomas", {
+            <Form.Control
+              type="text"
+              {...register("inputSintomas", {
                 required: "Los sintomas de la mascota es un dato obligatorio",
                 minLength: {
                   value: 3,
@@ -98,7 +125,8 @@ const FormularioPaciente = () => {
                   message:
                     "Los sintomas deben contener unicamente caracteres alfabeticos, mayusculas o minusculas",
                 },
-              })} />
+              })}
+            />
           </Form.Group>
           <Form.Text className="text-danger">
             {errors.inputSintomas?.message}
