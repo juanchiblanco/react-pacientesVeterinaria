@@ -5,7 +5,9 @@ import Card from "react-bootstrap/Card";
 const FormularioPaciente = () => {
   return (
     <Card className="shadow my-3">
-      <Card.Header className="ps-5 py-3 bg-light lead">Llenar el formulario para crear un cita</Card.Header>
+      <Card.Header className="ps-5 py-3 bg-light lead">
+        Llenar el formulario para crear un cita
+      </Card.Header>
       <Card.Body className="bg-primary-subtle">
         <Form>
           <Form.Group className="mb-3" controlId="nombreMascota">
@@ -22,17 +24,11 @@ const FormularioPaciente = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="hora">
             <Form.Label>Hora *</Form.Label>
-            <Form.Control
-              type="time"
-              required
-            />
+            <Form.Control type="time" required />
           </Form.Group>
           <Form.Group className="mb-3" controlId="sintoma">
             <Form.Label>Sintomas *</Form.Label>
-            <Form.Control
-              type="text"
-              required
-            />
+            <Form.Control type="text" required />
           </Form.Group>
           <Button variant="primary" type="submit" className="mt-4 w-100 shadow">
             Agregar nueva cita

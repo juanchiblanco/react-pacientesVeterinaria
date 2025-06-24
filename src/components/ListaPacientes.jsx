@@ -2,14 +2,23 @@ import Card from "react-bootstrap/Card";
 import PacienteCard from "./PacienteCard";
 
 const ListaPacientes = () => {
-    return (
-            <Card className="shadow my-3">
-      <Card.Header className="ps-5 py-3 bg-light text-center noCitas"><b>No hay citas</b></Card.Header>
+  return (
+    <Card className="shadow my-3">
+      <Card.Header className="py-3 bg-light text-center">
+        <b>No hay citas</b>
+      </Card.Header>
       <Card.Body className="bg-primary-subtle">
-        <PacienteCard/>
+        <div className="row justify-content-center gap-2">
+          <PacienteCard />
+          <PacienteCard />
+          <PacienteCard />
+          <PacienteCard />
+          <PacienteCard />
+          <PacienteCard />
+        </div>
       </Card.Body>
     </Card>
-    );
+  );
 };
 
 export default ListaPacientes;
