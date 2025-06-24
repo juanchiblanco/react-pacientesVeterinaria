@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
-const PacienteCard = ({cita , indice}) => {
+const PacienteCard = ({cita}) => {
     return (
         <Card className="shadow col-12 col-md-4 col-lg-3">
       <Card.Header className="bg-light text-center">
