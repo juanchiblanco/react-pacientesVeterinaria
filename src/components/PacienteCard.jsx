@@ -1,12 +1,21 @@
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap";
 
-const PacienteCard = () => {
+const PacienteCard = ({cita , indice}) => {
     return (
         <Card className="shadow col-12 col-md-4 col-lg-3">
-      <Card.Header className="bg-light text-center"><b>No hay citas</b></Card.Header>
-      <Card.Body className="bg-primary-subtle">fbd
+      <Card.Header className="bg-light text-center">
+        <p className="fs-2">{cita.inputMascota}</p>
+        <p className="fs-5">Dueño: {cita.inputDuenio}</p>
+        </Card.Header>
+      <Card.Body className="bg-primary-subtle">
+        <p>Fecha: {cita.inputFecha}</p>
+        <p>Hora: {cita.inputHora}</p>
+        <p>Sintomas: {cita.inputSintomas}</p>
       </Card.Body>
-      <Card.Footer>hol</Card.Footer>
+      <Card.Footer>
+        <Button type="button" variant="danger">Borrar</Button>
+      </Card.Footer>
     </Card>
     );
 };

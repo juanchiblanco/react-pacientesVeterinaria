@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import PacienteCard from "./PacienteCard";
 
-const ListaPacientes = () => {
+const ListaPacientes = ({citas}) => {
   return (
     <Card className="shadow my-3">
       <Card.Header className="py-3 bg-light text-center">
@@ -9,12 +9,9 @@ const ListaPacientes = () => {
       </Card.Header>
       <Card.Body className="bg-primary-subtle">
         <div className="row justify-content-center gap-2">
-          <PacienteCard />
-          <PacienteCard />
-          <PacienteCard />
-          <PacienteCard />
-          <PacienteCard />
-          <PacienteCard />
+          {citas.map((cita, indice) => (
+            <PacienteCard cita={cita} key={indice} />
+          ))}
         </div>
       </Card.Body>
     </Card>

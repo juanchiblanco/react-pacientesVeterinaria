@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import ListaPacientes from "./ListaPacientes";
 
 const FormularioPaciente = () => {
   const [citas, setCitas] = useState([]);
@@ -16,10 +17,12 @@ const FormularioPaciente = () => {
 
   const agregarCitas = (cita) => {
     setCitas([...citas, cita]);
+    console.log(citas)
     reset();
   };
 
   return (
+    <>
     <Card className="shadow my-3">
       <Card.Header className="ps-5 py-3 bg-light lead">
         Llenar el formulario para crear un cita
@@ -137,6 +140,8 @@ const FormularioPaciente = () => {
         </Form>
       </Card.Body>
     </Card>
+    <ListaPacientes citas={citas}/>
+    </>
   );
 };
 
