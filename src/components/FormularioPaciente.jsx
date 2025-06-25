@@ -7,7 +7,7 @@ import ListaPacientes from "./ListaPacientes";
 
 const FormularioPaciente = () => {
   
-  const citasLocalStorage = JSON.parse(localStorage.getItem("citas") || []);
+  const citasLocalStorage = JSON.parse(localStorage.getItem("citas")) || [];
 
   const [citas, setCitas] = useState(citasLocalStorage);
 
